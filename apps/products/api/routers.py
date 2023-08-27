@@ -1,5 +1,5 @@
 from rest_framework.routers import DefaultRouter
-from apps.products.api.viewsets.product_views import ProductViewSet
+from apps.products.api.viewsets.product_viewsets import ProductViewSet
 
 router = DefaultRouter()
 
