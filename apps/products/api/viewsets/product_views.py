@@ -4,12 +4,9 @@ from rest_framework.response import Response
 from apps.base.api import GeneralListApiView
 from apps.products.api.serializers.product_serializers import ProductSerializer
 
-class ProductListAPIView(GeneralListApiView):
+class ProductListCreateAPIView(generics.ListCreateAPIView):
     serializer_class = ProductSerializer
-
-
-class ProductCreateAPIView(generics.CreateAPIView):
-    serializer_class = ProductSerializer
+    queryset = ProductSerializer.Meta.model.objects.filter(state=True)
 
     # si se requiere validar algo en el post se debe sobreescribir el metodo si no solo con el serializer lo crea
     def post(self, request):
